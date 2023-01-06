@@ -96,7 +96,8 @@ class image_enhancer():
         h,w = img_size
         L_len = w*h
         self.L_len = L_len
-        self.D_val = np.matlib.repmat([-1,1], 1, L_len).squeeze()         #Dy
+        #self.D_val = np.matlib.repmat([-1,1], 1, L_len).squeeze()         #Dy
+        self.D_val = np.tile([-1,1], (1, L_len)).squeeze()
         self.Dx, self.Dy = self.get_dx_dy()
         self.Dx_t = np.transpose(self.Dx)
         self.Dy_t = np.transpose(self.Dy)     
@@ -119,7 +120,8 @@ class image_enhancer():
             A_len = int(np.sum(mask==0))
         else:
             A_len = L_len
-        D_val = np.matlib.repmat([-1,1], 1, A_len).squeeze()         #Dy
+        #D_val = np.matlib.repmat([-1,1], 1, A_len).squeeze()         #Dy
+        D_val = np.tile([-1,1], (1, A_len)).squeeze()
         col1 = np.arange(-1, w*h-1)
         col2=col1+2
         col1[0::h]+=1
