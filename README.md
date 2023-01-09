@@ -17,4 +17,8 @@ Please cite the following reference if you use SALVE:
 ## Usage
 
 - Clone the repo and `cd` to it.
-
+- Run `conda env create -f salve.yml` to install the dependencies.
+- Run `conda activate salve`.
+- Place the folder coontaining frames of the dark video into `dark` folder. (If you need to synthesize dark frames from normal-light frames, use `darken.py`.)
+- Run `main.py` to enhnace the video.
+- Find the enhanced frames in `enhanced` folder.
